@@ -57,4 +57,5 @@ if __name__ == "__main__":
     a = [2, 3, 5, 2, 7, 3, 4, 18, 8, 10, 12, 9]
     sort(a)
     #insert_sort(a, 0, len(a))
-    print a
+    import sorttest
+    sorttest.test(sort)

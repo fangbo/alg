@@ -1,3 +1,4 @@
+import sorttest
 
 
 def sort(array):
@@ -5,6 +6,8 @@ def sort(array):
 
 
 def partition(array, left, right):
+    if left == right:
+        return
     pivot = array[(left + right) / 2]
 
     i = left
@@ -12,13 +15,15 @@ def partition(array, left, right):
     while i <= j:
         while array[i] < pivot:
             i += 1
-        while j >= 0 and array[j] >= pivot:
+        while j >= 0 and array[j] > pivot:
             j -= 1
 
-        if i < j:
+        if i <= j:
             tmp = array[i]
             array[i] = array[j]
             array[j] = tmp
+            i += 1
+            j -= 1
 
     return i
 
@@ -27,7 +32,7 @@ def quick_sort(array, left, right):
     index = partition(array, left, right)
     if left < index - 1:
         quick_sort(array, left, index - 1)
-    if index + 1 < right:
+    if index < right:
         quick_sort(array, index, right)
 
 if __name__ == "__main__":
@@ -35,3 +40,5 @@ if __name__ == "__main__":
     sort(a)
     #insert_sort(a, 0, len(a))
     print a
+
+    sorttest.test(sort)
