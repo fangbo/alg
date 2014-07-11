@@ -30,7 +30,7 @@ public class SkipList {
 		for (int R = random.nextInt(); (R & 1) == 1; R >>= 1) {
 			newNodeLevel++;
 			if (newNodeLevel == this.level) {
-				if (this.level < 32) {
+				if (this.level < MAX_HEIGHT) {
 					this.level++;
 				}
 				
