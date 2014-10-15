@@ -109,11 +109,10 @@ class Graph(object):
 
             if not cycle:
                 span_tree.edges.append(each_edge)
+                i += 1
 
-            if i == total_vertices:
+            if i >= (total_vertices - 1):
                 break
-
-            i += 1
 
         return span_tree
 
@@ -134,7 +133,6 @@ if __name__ == "__main__":
     g.add_edge(0, 2, 1)
     g.add_edge(1, 2, 2)
     g.add_edge(1, 3, 0)
-    g.add_edge(2, 3, 1)
 
     if g.is_contains_cycle():
         print "graph contains cycle"
